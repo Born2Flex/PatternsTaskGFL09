@@ -7,6 +7,17 @@ import java.util.List;
 
 public class MovieCatalogImpl implements MovieCatalog {
     private final List<Movie> list = new ArrayList<>();
+    private static MovieCatalogImpl instance;
+
+    private MovieCatalogImpl() {
+    }
+
+    public static MovieCatalogImpl getInstance() {
+        if (instance == null) {
+            instance = new MovieCatalogImpl();
+        }
+        return instance;
+    }
 
     public void printAllMovies() {
         for (int i = 1; i <= list.size(); i++) {

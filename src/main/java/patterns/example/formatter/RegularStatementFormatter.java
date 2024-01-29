@@ -4,6 +4,16 @@ import patterns.example.customer.Customer;
 import patterns.example.movie.Rental;
 
 public class RegularStatementFormatter extends StatementFormatter {
+    private static RegularStatementFormatter statementFormatter;
+    private RegularStatementFormatter() {
+    }
+
+    public static RegularStatementFormatter getInstance() {
+        if (statementFormatter == null) {
+            statementFormatter = new RegularStatementFormatter();
+        }
+        return statementFormatter;
+    }
     @Override
     protected void addRentalData(StringBuilder sb, Rental r) {
         sb.append('\t')

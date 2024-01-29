@@ -4,6 +4,16 @@ import patterns.example.customer.Customer;
 import patterns.example.movie.Rental;
 
 public class HtmlStatementFormatter extends StatementFormatter {
+    private static HtmlStatementFormatter statementFormatter;
+    private HtmlStatementFormatter() {
+    }
+
+    public static HtmlStatementFormatter getInstance() {
+        if (statementFormatter == null) {
+            statementFormatter = new HtmlStatementFormatter();
+        }
+        return statementFormatter;
+    }
     @Override
     protected void addRentalData(StringBuilder sb, Rental r) {
         sb.append("""

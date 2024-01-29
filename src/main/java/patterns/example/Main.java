@@ -19,7 +19,7 @@ public class Main {
 //                new Rental(new Movie.Builder(MovieType.REGULAR, "King Kong").build(), 2)
 //        );
 //        CustomerCaretaker customer = new CustomerCaretaker("John Doe", list);
-        RentalService rentalService = new RentalService(new HtmlStatementFormatter(), new MovieCatalogImpl(), new FileDataStore("1.html"));
+        RentalService rentalService = new RentalService(HtmlStatementFormatter.getInstance(), MovieCatalogImpl.getInstance(), new FileDataStore("1.html"));
 //        rentalService.saveStatement(customer);
 
         rentalService.addMovie(new Movie.Builder(MovieType.CHILDRENS, "Garfield").build());
